@@ -9,7 +9,7 @@ services:
     command: python app.py
     depends_on:
       redis:
-#         condition: service_healthy
+        condition: service_healthy
     healthcheck: 
       test: ["CMD", "curl", "-f", "http://localhost"]
       interval: 15s
@@ -31,7 +31,7 @@ services:
     entrypoint: nodemon server.js
     depends_on:
       db:
-#         condition: service_healthy 
+        condition: service_healthy 
     volumes:
       - ./result:/app
     ports:
@@ -47,19 +47,19 @@ services:
     image: rujrawee11/worker:1.0
     depends_on:
       redis:
-#         condition: service_healthy 
+        condition: service_healthy 
       db:
-#         condition: service_healthy 
+        condition: service_healthy 
     networks:
       - back-tier
 
   redis:
     image: redis:alpine
-#     volumes:
-#       - "./healthchecks:/healthchecks"
-#     healthcheck:
-#       test: /healthchecks/redis.sh
-#       interval: "5s"
+    volumes:
+      - "./healthchecks:/healthchecks"
+    healthcheck:
+      test: /healthchecks/redis.sh
+      interval: "5s"
     networks:
       - back-tier
 
@@ -70,10 +70,10 @@ services:
       POSTGRES_PASSWORD: "postgres"
     volumes:
       - "db-data:/var/lib/postgresql/data"
-#       - "./healthchecks:/healthchecks"
-#     healthcheck:
-#       test: /healthchecks/postgres.sh
-#       interval: "5s"
+      - "./healthchecks:/healthchecks"
+    healthcheck:
+      test: /healthchecks/postgres.sh
+      interval: "5s"
     networks:
       - back-tier
 
