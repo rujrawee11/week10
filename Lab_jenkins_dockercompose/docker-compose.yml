@@ -26,7 +26,7 @@ services:
 
   result:
     build: ./result
-    image: rosjana63070145/result:1.0
+    image: rujrawee11/result:1.0
     # use nodemon rather than node for local dev
     entrypoint: nodemon server.js
     depends_on:
@@ -44,7 +44,7 @@ services:
   worker:
     build:
       context: ./worker
-    image: rosjana63070145/worker:1.0
+    image: rujrawee11/worker:1.0
     depends_on:
       redis:
         condition: service_healthy 
