@@ -1,14 +1,27 @@
 services:
   fe:
     build: ./FE
-    image: rujrawee11/fe:lastest
+    image: rujrawee11/fe:1.0
+
     ports:
-      - "8088:80"
-    container_name: fe
+      - "3000:80"
+    links:
+      - backend
+    networks:
+      - front-tier
+
 
   be:
     build: ./BE
-    image: rujrawee11/be:lastest
+    image: rujrawee11/be:1.0
+
     ports:
-      - "3000:80"
+      - "8088:80"
     container_name: be
+    networks:
+      - back-tier
+
+
+  networks:
+  front-tier:
+  back-tier:
