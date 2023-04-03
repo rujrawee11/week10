@@ -1,14 +1,14 @@
 services:
-  FE:
+  fe:
     build: ./FE
     image: rujrawee11/FE:lastest
     ports:
       - "8088:80"
-    container_name: FE
+    container_name: fe
 
-  BE:
+  be:
     build: ./BE
     image: rujrawee11/BE:lastest
     ports:
       - "3000:80"
-    container_name: BE
+    container_name: be
