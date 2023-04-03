@@ -3,24 +3,25 @@
 # docker-compose v1.27+ required
 
 services:
-  backend:
+  fe:
+    build: ./FE
+    image: rujrawee11/fe:lastest
+    ports: 
+      - 3000:80
+    links:
+      - be
+    networks:
+      - front-tier
+    
+
+  be:
     build: ./BE
-    image: rujrawee11/backend:1.0
+    image: rujrawee11/be:lastest
     ports: 
       - 8088:80
     networks:
       - back-tier
-
-  hello-app:
-    build: ./FE
-    image: rujrawee11/frontend:1.0
-    ports: 
-      - 3000:80
-    links:
-      - backend
-    networks:
-      - front-tier
-
+  
 networks:
   front-tier:
   back-tier:
