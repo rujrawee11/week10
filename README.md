@@ -1,4 +1,3 @@
-#test
 Clip ส่งงาน 63070151 รุจรวี มีลา
 
 # Install jenkins, docker, docker-compose, and git 
