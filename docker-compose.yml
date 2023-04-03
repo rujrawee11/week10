@@ -5,16 +5,10 @@ services:
     ports:
       - "8088:80"
     container_name: FE
-    networks:
-      - front-tier
+
   BE:
     build: ./BE
     image: rujrawee11/BE:lastest
     ports:
       - "3000:80"
     container_name: BE
-    networks:
-      - back-tier
-  networks:
-  front-tier:
-  back-tier:
