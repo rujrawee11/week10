@@ -1,5 +1,6 @@
-Clip ส่งงาน 63070151 รุจรวี มีลา
-
+# Clip ส่งงาน 63070151 รุจรวี มีลา
+https://youtu.be/1tGuxcqkWKQ
+ 
 # Install jenkins, docker, docker-compose, and git 
 
 ### 1. Open the install_git_docker_docker_compose.sh file :
