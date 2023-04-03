@@ -1,27 +1,26 @@
+# version is now using "compose spec"
+# v2 and v3 are now combined!
+# docker-compose v1.27+ required
+
 services:
-  fe:
-    build: ./FE
-    image: rujrawee11/fe:1.0
-
-    ports:
-      - "3000:80"
-    links:
-      - be
-    networks:
-      - front-tier
-
-
-  be:
+  backend:
     build: ./BE
-    image: rujrawee11/be:1.0
-
-    ports:
-      - "8088:80"
-    container_name: be
+    image: rujrawee11/backend:1.0
+    ports: 
+      - 8088:80
     networks:
       - back-tier
 
+  hello-app:
+    build: ./FE
+    image: rujrawee11/frontend:1.0
+    ports: 
+      - 3000:80
+    links:
+      - backend
+    networks:
+      - front-tier
 
-  networks:
+networks:
   front-tier:
   back-tier:
