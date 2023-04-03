@@ -7,7 +7,7 @@ services:
     build: ./FE
     image: rujrawee11/fe:lastest
     ports: 
-      - 3000:80
+      - 8088:80
     links:
       - be
     networks:
@@ -18,7 +18,7 @@ services:
     build: ./BE
     image: rujrawee11/be:lastest
     ports: 
-      - 8088:80
+      - 3000:80
     networks:
       - back-tier
   
